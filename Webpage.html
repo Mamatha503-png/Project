@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="M.Mamatha">
+    <meta http-equiv="content-type" content="Website">
+    <meta name="product" content="Online course">
+    <meta name="description" content="creating own website">
+    <meta name="keyword" content="web,website,own website">
+  	<title>WEBPAGE</title>
+	<link rel="icon" type="image" href="C:/Users/HP/Desktop/WT/images/logo-design-software.jpeg" >
+	<link rel="stylesheet" type="text/css" href="wt.css">
+</head>
+<body>
+	<div class="cool">
+    <img class="img" src="C:/Users/HP/Desktop/WT/images/mine.png" width="100px" height="90px">
+	<h1 class="head">HOME PAGE</h1></b>
+  <div class="hamburger" onclick="return toggle();" style="cursor:pointer;">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</div>
+<div>
+  <nav class="navbar">
+  <ul>
+  <li><a href="#" ><img src="C:/Users/HP/Desktop/WT/images/home.png" width="25px"  height="30px"></a></li>
+  <li><a href="Exam.html">Exam</a></li>
+ <!-- <label>Branch</label>
+  <select>
+  	<option value="cs  	<option value="ece">ECE</option>
+  	<option value="mech">MECH</option>
+  	</select>-->
+    <div class="dropdown">
+  <li>Branch</li>
+  <div class="dropdown-content">
+    <a href="#">CSE&nbsp</a>
+    <a href="#">ECE</a>
+    <a href="#">MECH</a>
+  </div>
+</div>
+  <li><a href="about.html">AboutUs</a></li>
+  <li><a href="contactus.html">ContactUs</a></li>
+
+</ul>
+</nav>
+</div>
+
+<div class="main">
+        <div class="filter" >
+            <div class="input">
+                <input type="text" name="text" id="input">
+                <button id="button">ADD</button><br>
+                <input type="text" name="search" placeholder="search" id="search" >
+            </div>
+            <ul id="filter-list">
+                <li class="listitem">N180110 <button class="delete">X</button></li>
+                <li class="listitem">N180114 <button class="delete">X</button></li>
+                <li class="listitem">N180150 <button class="delete">X</button></li>
+                <li class="listitem">N180121 <button class="delete">X</button></li>
+                <li class="listitem">N180010 <button class="delete">X</button></li>
+                <li class="listitem">N180069 <button class="delete">X</button></li>
+                <li class="listitem">N180122 <button class="delete">X</button></li>
+                <li class="listitem">N180395 <button class="delete">X</button></li>
+            </ul>
+        </div>
+        <div class="slideshow">
+            <div class="transparent"></div>
+            <div class="slider">
+                <div class="slides">
+                    
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <div class="slide first">
+                        <img src="C:/Users/HP/Desktop/WT/images/pic1.png"  >
+                    </div>
+                    <div class="slide">
+                        <img src="C:/Users/HP/Desktop/WT/images/pic2.png" >
+                    </div>
+                    <div class="slide">
+                        <img src="C:/Users/HP/Desktop/WT/images/pic3.png" >
+                    </div>
+                    <div class="slide">
+                        <img src="C:/Users/HP/Desktop/WT/images/pic4.png" >
+                    </div>
+                </div>
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+            </div>
+        </div>
+        <div class="notify">
+            <ul class="notify-list">
+                <li>Notification-1</li>
+                <li>Notification-2</li>
+                <li>Notification-2</li>
+                <li>Notification-3</li>
+                <li>Notification-4</li>
+                <li>Notification-5</li>
+                <li>Notification-6</li>
+            </ul>
+        </div>
+    </div>
+<footer class="foot">
+  <ul>
+    <li>&copy:copyrights</li>
+    <li>&facebook</li>
+    <li>&instagram</li>
+    <li>&twitter</li>
+    <li>&linkedin</li>
+    </ul>
+</footer>
+<script>
+  var nav=document.getElementById('nav')
+  function toggole(){
+    if(nav.style.display="none"){
+      nav.style.display="block" ;
+    }
+    else{
+      nav.style.display="none";
+    }
+  }
+  var counter=1;
+        setInterval(function(){
+            document.getElementById('radio'+ counter).checked=true;
+            console.log(document.getElementById('radio'+ counter).checked);
+            counter++;
+            if(counter>4){
+                counter=1
+            }
+        },3000);
+ var add=document.getElementById('button')
+        var filter=document.getElementById('filter-list');
+        var searchbar=document.getElementById('search');
+        function additem(e){
+            e.preventDefault();
+            var input=document.getElementById('input').value; 
+            var li=document.createElement('li');
+            var text=document.createTextNode(input);
+            li.appendChild(text);
+            filter.appendChild(li);
+            li.setAttribute('class','listitem')
+            var but=document.createElement('button');
+            var value=document.createTextNode(' X');
+            but.appendChild(value);
+            but.setAttribute('class','delete')
+            li.appendChild(but);
+            console.log(but)
+        }
+        function removeitem(e){
+            e.preventDefault();
+            if(e.target.classList.contains('delete')){
+                var parent=e.target.parentElement;
+                filter.removeChild(parent)
+            }    
+        }
+        function filtering(e){
+            var text=e.target.value.toLowerCase();
+            var items=document.getElementsByClassName('listitem')
+            Array.from(items).forEach((item)=>{
+                itemvalue=item.firstChild.textContent;
+                if(itemvalue.toLowerCase().indexOf(text)!=-1){
+                    item.style.display='block';
+                }
+                else{
+                    item.style.display="none";
+                }
+            })
+        }    
+        add.addEventListener('click',additem);
+        filter.addEventListener('click',removeitem);
+        searchbar.addEventListener('keyup',filtering)
+</script>
+</body>
+</html>
